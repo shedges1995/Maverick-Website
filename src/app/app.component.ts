@@ -8,6 +8,7 @@ interface Plan {
   description: string;
   features: string[];
   popular?: boolean;
+  isCustom?: boolean;
 }
 
 interface TeamMember {
@@ -61,77 +62,90 @@ export class AppComponent {
 
   plans: Plan[] = [
     {
-      name: 'Starter',
+      name: 'The Scout',
       price: '29',
-      description: 'Perfect for freelancers and solo entrepreneurs',
+      description: 'Ideal for businesses ready to get organized and gain financial visibility',
       features: [
-        'Up to 50 transactions/month',
-        'Basic reporting',
-        'Mobile app access',
-        'Email support',
-        '1 user account'
+        'We occupy the bookkeeping and accounting seat',
+        'QuickBooks Online setup + chart-of-accounts build-out',
+        'Monthly Double reporting (basic)',
+        '1099 preparation and vendor maintenance',
+        'Client portal with full financial access'
       ]
     },
     {
-      name: 'Professional',
+      name: 'The Ranger',
       price: '79',
-      description: 'Ideal for growing businesses',
+      description: 'Perfect for companies outgrowing basic bookkeeping',
       features: [
-        'Unlimited transactions',
-        'Advanced analytics',
-        'Priority support',
-        'API access',
-        'Up to 5 user accounts',
-        'Custom invoicing',
-        'Tax preparation tools'
+        'Everything in The Scout',
+        'Payroll admin via Gusto or QuickBooks Payroll',
+        'Business and owner tax filings (Federal & State)',
+        'Sales & Use Tax compliance and permit registration',
+        'Franchise & Excise Tax returns',
+        'Agency registration and correspondence (IRS, SOS, Comptroller, TWC)',
+        'Monthly Loom video reviews'
       ],
       popular: true
     },
     {
-      name: 'Enterprise',
+      name: 'The Maverick',
       price: '199',
-      description: 'For established companies with complex needs',
+      description: 'You get the sophistication of an in-house CFO without the overhead',
       features: [
-        'Everything in Professional',
-        'Dedicated account manager',
-        'Custom integrations',
-        'Advanced security features',
-        'Unlimited users',
-        'White-label options',
-        'On-premise deployment'
+        'Everything in the Ranger',
+        'Deposit & expense management + banking structure oversight',
+        'Tax Plan maintenance following TaxPlanIQ analysis',
+        'Liaison to your attorneys, advisors, and banks',
+        'Monthly strategic reviews with a Maverick partner'
+      ]
+    },
+    {
+      name: 'Custom',
+      price: '?',
+      isCustom:true,
+      description: 'For businesses with unique needs requiring tailored solutions',
+      features: [
+        'Add-ons such as multi-entity consolidation',
+        'Advanced reporting', 
+        'Compensation analysis',
+        'Registered agent service', 
+        'Benefits administration are also available (though package-specific).'
       ]
     }
   ];
 
   team: TeamMember[] = [
     {
-      name: 'Marcus Chen',
+      name: 'Hunter Jackson, CPA',
       role: 'CEO & Founder',
-      bio: '15+ years in fintech, former VP at Goldman Sachs',
+      bio: 'Hottie with a body',
       image: '👨‍💼'
     },
     {
-      name: 'David Rodriguez',
+      name: 'Micah Peacock',
       role: 'CTO',
-      bio: 'Built scalable systems at Amazon and Stripe',
+      bio: 'Has a spotify presence',
       image: '👨‍💻'
     },
     {
-      name: 'James Mitchell',
+      name: 'AJ Something or Other',
       role: 'Head of Product',
-      bio: 'Product lead with deep accounting expertise',
+      bio: 'Exists',
       image: '👔'
-    },
-    {
-      name: 'Alex Turner',
-      role: 'VP of Sales',
-      bio: 'Grew revenue 10x at previous SaaS startup',
-      image: '🎯'
     }
   ];
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+  scrollToElement(elementId: string): void {
+
+    const element = document.getElementById(elementId);
+    console.log('Scrolling to element:', elementId, element);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 
@@ -185,43 +199,4 @@ bootstrapApplication(AppComponent, {
 html {
   scroll-behavior: smooth;
 }
-*/
-
-// ============================================
-// tailwind.config.js
-// ============================================
-/*
-module.exports = {
-  content: [
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-// */
-
-// ============================================
-// To set up this project:
-// ============================================
-/*
-1. Create new Angular project:
-   ng new accounting-app --standalone --style=css
-
-2. Install Tailwind CSS:
-   npm install -D tailwindcss postcss autoprefixer
-   npx tailwindcss init
-
-3. Configure Tailwind (use the config above)
-
-4. Update styles.css with Tailwind directives
-
-5. Add a hero background image to src/assets/hero-bg.jpg
-   (Use an image of a modern office, business professional working,
-   financial charts, or a sleek corporate environment)
-
-6. Replace app.component.ts with the code above
-
-7. Run the application:
-   ng serve
 */
