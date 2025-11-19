@@ -118,19 +118,19 @@ export class AppComponent {
   team: TeamMember[] = [
     {
       name: 'Hunter Jackson, CPA',
-      role: 'CEO & Founder',
+      role: 'Partner, Tax Director',
       bio: 'Hottie with a body',
       image: '👨‍💼'
     },
     {
       name: 'Micah Peacock',
-      role: 'CTO',
+      role: 'Partner',
       bio: 'Has a spotify presence',
       image: '👨‍💻'
     },
     {
-      name: 'AJ Something or Other',
-      role: 'Head of Product',
+      name: 'AJ Zepeda',
+      role: 'Partner',
       bio: 'Exists',
       image: '👔'
     }
@@ -140,7 +140,7 @@ export class AppComponent {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
   scrollToElement(elementId: string): void {
-
+    console.log("here")
     const element = document.getElementById(elementId);
     console.log('Scrolling to element:', elementId, element);
     if (element) {
@@ -148,55 +148,3 @@ export class AppComponent {
     }
   }
 }
-
-// ============================================
-// main.ts
-// ============================================
-/*
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-
-bootstrapApplication(AppComponent, {
-  providers: []
-}).catch(err => console.error(err));
-*/
-
-// ============================================
-// angular.json (key sections)
-// ============================================
-/*
-{
-  "projects": {
-    "accounting-app": {
-      "architect": {
-        "build": {
-          "options": {
-            "styles": [
-              "src/styles.css"
-            ]
-          }
-        }
-      }
-    }
-  }
-}
-*/
-
-// ============================================
-// styles.css (Tailwind setup)
-// ============================================
-/*
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-*/
