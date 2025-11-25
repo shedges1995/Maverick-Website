@@ -21,7 +21,8 @@
               <a href="#features" class="text-slate-300 hover:text-white transition">Features</a>
               <a href="#pricing" class="text-slate-300 hover:text-white transition">Pricing</a>
               <a href="#team" class="text-slate-300 hover:text-white transition">Team</a>
-              <button (click)="scrollToElement('contact')" style = "width:131px" class="bg-gradient-to-r from-yellow-700 to-orange-950 px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
+              <button (click)="scrollToElement('contact')" style = "width:131px" 
+              class="bg-yellow-700 px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
                 Get Started
               </button>
             </div>
@@ -43,7 +44,7 @@
             <a href="#features" class="block text-slate-300 hover:text-white transition py-2">Features</a>
             <a href="#pricing" class="block text-slate-300 hover:text-white transition py-2">Pricing</a>
             <a href="#team" class="block text-slate-300 hover:text-white transition py-2">Team</a>
-            <button class="w-full bg-gradient-to-r from-yellow-700 to-orange-950 px-6 py-3 rounded-lg font-semibold">
+            <button class="w-full bg-yellow-700 px-6 py-3 rounded-lg font-semibold">
               Get Started
             </button>
           </div>
@@ -76,7 +77,9 @@
                 Because excellent service shouldn't be elusive and excellent advice should never stay behind the curtain.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
-                <button (click)="scrollToElement('contact')" class="bg-gradient-to-r from-yellow-700 to-orange-950 px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition flex items-center justify-center gap-2">
+                <button (click)="scrollToElement('contact')" 
+                class="bg-yellow-700 px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition flex items-center justify-center gap-2"
+                >
                   Contact Us →
                 </button>
               </div>
@@ -105,6 +108,84 @@
         </div>
       </section>
 
+      <section class="py-20 px-4 bg-slate-950 relative overflow-hidden">
+         <div class="absolute inset-0 z-0" style="opacity:50%;     bottom: -440px;">
+          <img 
+            src="assets/images/mountain3.jpg" 
+            alt="Hero Background" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Who are we</h2>
+            <p class="text-xl text-slate-400">Why Maverick? Because you don't just need reports - you need results. We merge modern accounting tech with the insight of a controller's mind, challenging the "that's how it's always been done" mentality at every turn.
+We're accountants for the next generation of business leaders - bold enough to innovate,
+disciplined enough to deliver, and relentless about giving you financial clarity with an edge.</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div
+                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
+              <div class="text-5xl mb-4">hi</div>
+              <h3 class="text-xl font-bold mb-3">hr</h3>
+              <p class="text-slate-400">If you’re like most business owners, you’re stuck reacting instead of leading - unsure where your
+money’s really going, worried about taxes, and tired of compliance-only service that keeps you
+“barely legal” but never strategically strong. You feel stalled, disempowered, unseen.</p>
+             
+             
+            </div>
+             <div class="line-top" style="   width: 120px;
+        height:60px;
+        z-index: -1;
+        background: transparent;
+        border: none;
+        border-top: dashed 2px orange;
+        padding: 40px 40px;
+        border-radius: 50%;
+        margin: 20px -50px 0;"> <img 
+            src="assets/images/arrow-right.png" 
+            alt="Hero Background" style="position: absolute;width:20%;margin-top:50px"
+          /></div>
+              <div><img 
+            src="assets/images/arrow-right.png" 
+            alt="Hero Background" style="position: absolute;width:20%;margin-top:50px;transform: rotateY(180deg)"
+          /></div>
+                   
+
+               <div
+                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
+              <div class="text-5xl mb-4">That’s where we come in.</div>
+              <h3 class="text-xl font-bold mb-3">hr</h3>
+              <p class="text-slate-400"> We know how chaotic entrepreneurship can feel and how impossible
+good decisions seem without good data. We’re not just CPAs - we’re builders, operators, and
+problem-solvers who thrive on clarity and challenge convention when it’s holding clients back.
+We bring the precision of accounting together with the innovation of modern tech. Our team
+leverages automation, AI, and intelligent systems so you can finally see what’s driving your
+business forward.</p>
+             
+             
+            </div>
+            <div
+                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
+              <div class="text-5xl mb-4">hi</div>
+              <h3 class="text-xl font-bold mb-3">hr</h3>
+              <p class="text-slate-400">1. Schedule a consultation
+2. Select your service package (Scout | Ranger | Maverick)
+3. Regain your momentum - with clear, actionable financial insight.
+Ignore your numbers, and you’ll keep flying blind.
+Work with Maverick, and you’ll lead your business with confidence - empowered, informed, and
+in control.</p>
+             
+             
+            </div>
+             <div></div>
+              <div></div>
+          </div>
+        </div>
+      </section>
+
+
       <!-- Features Section -->
       <section id="features" class="py-20 px-4 bg-slate-900">
         <div class="max-w-7xl mx-auto">
@@ -124,6 +205,7 @@ disciplined enough to deliver, and relentless about giving you financial clarity
           </div>
         </div>
       </section>
+
 
       <!-- Pricing Section -->
       <section id="pricing" class="py-20 px-4">
@@ -219,7 +301,7 @@ company scales, your financial systems scale with you.</p>
               <label for="message" class="block mb-2 text-slate-300 font-semibold">Message</label>
               <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-cyan-500" placeholder="How can we help you?" required></textarea>
             </div>
-            <button type="submit" style="float: right;" class="bg-gradient-to-r from-yellow-700 to-orange-950 px-10 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
+            <button type="submit" style="float: right;" class="bg-yellow-700 px-10 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
               Send Message
             </button>
           </form>

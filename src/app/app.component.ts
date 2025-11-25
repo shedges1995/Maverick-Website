@@ -1,6 +1,7 @@
 // app.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollRevealDirective } from './scroll-reveal.directive';
 
 interface Plan {
   name: string;
