@@ -12,11 +12,28 @@ interface Plan {
   isCustom?: boolean;
 }
 
+interface StoryStep {
+  title: string;
+  description: string;
+  icon: string;
+  visible: boolean;
+}
+
+
 interface TeamMember {
   name: string;
   role: string;
   bio: string;
   image: string;
+}
+
+interface Review {
+  name: string;
+  role: string;
+  company: string;
+  rating: number;
+  text: string;
+  avatar: string;
 }
 
 @Component({
@@ -33,11 +50,14 @@ interface TeamMember {
 export class AppComponent {
   mobileMenuOpen = false;
   isScrolled = false;
+  currentYear = 2025;
 
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.onScroll.bind(this));
+      this.checkStoryVisibility();
     }
+    this.currentYear = new Date().getFullYear();
   }
 
   ngOnDestroy(): void {
@@ -48,6 +68,103 @@ export class AppComponent {
 
   onScroll(): void {
     this.isScrolled = window.scrollY > 50;
+    this.checkStoryVisibility();
+  }
+
+  storySteps: StoryStep[] = [
+    {
+      title: 'The Problem',
+      description: 'If you’re like most business owners, you’re stuck reacting instead of leading - unsure where yourmoney’s really going, worried about taxes, and tired of compliance-only service that keeps you “barely legal” but never strategically strong. You feel stalled, disempowered, unseen.',
+      icon: '💡',
+      visible: false
+    },
+    {
+      title: 'The Vision',
+      description: 'That’s where we come in. We know how chaotic entrepreneurship can feel and how impossible good decisions seem without good data. We’re not just CPAs - we’re builders, operators, and problem-solvers who thrive on clarity and challenge convention when it’s holding clients back. We bring the precision of accounting together with the innovation of modern tech.',
+      icon: '🎯',
+      visible: false
+    },
+    {
+      title: 'The Work',
+      description: 'Our team leverages automation, AI, and intelligent systems so you can finally see what’s driving your business forward. <div style="float: left"><br>1. Schedule a consultation <br>2. Select your service package (Scout | Ranger | Maverick) <br>3. Regain your momentum - with clear, actionable financial insight.</div> <br><br>Ignore your numbers, and you’ll keep flying blind.',
+      icon: '🚀',
+      visible: false
+    },
+ 
+  ];
+
+  reviews: Review[] = [
+    {
+      name: 'Sarah Chen',
+      role: 'CFO',
+      company: 'TechStart Inc',
+      rating: 5,
+      text: 'AcctPro transformed how we handle our finances. What used to take our team days now takes hours. The real-time dashboards are a game-changer.',
+      avatar: '👩‍💼'
+    },
+    {
+      name: 'Michael Roberts',
+      role: 'Founder',
+      company: 'GrowthLabs',
+      rating: 5,
+      text: 'Finally, accounting software that doesn\'t require a PhD to use. Clean interface, powerful features, and their support team is incredibly responsive.',
+      avatar: '👨‍💼'
+    },
+    {
+      name: 'Jennifer Martinez',
+      role: 'Controller',
+      company: 'Retail Solutions Co',
+      rating: 5,
+      text: 'The automation features alone have saved us 15+ hours per week. AcctPro pays for itself within the first month. Absolutely worth it.',
+      avatar: '👩‍💻'
+    },
+    {
+      name: 'David Park',
+      role: 'Business Owner',
+      company: 'Park Consulting',
+      rating: 5,
+      text: 'I\'ve tried every accounting platform out there. AcctPro is the only one that truly understands what modern businesses need. Five stars!',
+      avatar: '👨'
+    },
+    {
+      name: 'Emily Thompson',
+      role: 'Finance Director',
+      company: 'BlueSky Media',
+      rating: 5,
+      text: 'The forecasting tools have given us insights we never had before. We can now make data-driven decisions with confidence. Highly recommend!',
+      avatar: '👩'
+    },
+    {
+      name: 'James Wilson',
+      role: 'CEO',
+      company: 'Innovate Digital',
+      rating: 5,
+      text: 'Best investment we\'ve made for our business. The team collaboration features make working with our accountant seamless. Outstanding product.',
+      avatar: '🧑‍💼'
+    }
+  ];
+
+
+  checkStoryVisibility(): void {
+    if (typeof window === 'undefined') return;
+
+    const windowHeight = window.innerHeight;
+    const scrollTop = window.scrollY;
+
+    this.storySteps.forEach((step, index) => {
+      const element = document.querySelector(`[data-story-index="${index}"]`);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + scrollTop;
+        const elementVisible = (scrollTop + windowHeight) > elementTop + 100;
+        
+        if (elementVisible && !step.visible) {
+          setTimeout(() => {
+            step.visible = true;
+          }, index * 200);
+        }
+      }
+    });
   }
   
   chartData = [40, 60, 45, 75, 55, 85, 70, 90, 65, 95, 80, 100];
