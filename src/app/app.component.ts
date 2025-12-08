@@ -1,7 +1,10 @@
 // app.component.ts
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollRevealDirective } from './scroll-reveal.directive';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { FormsModule } from '@angular/forms';
+
 
 interface Plan {
   name: string;
@@ -39,18 +42,21 @@ interface Review {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './app.component.html',
   styles: [`
     :host {
       display: block;
     }
-  `]
+  `],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppComponent {
   mobileMenuOpen = false;
   isScrolled = false;
   currentYear = 2025;
+  contactForm = new FormData;
+  thankyou = false;
 
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
@@ -74,7 +80,7 @@ export class AppComponent {
   storySteps: StoryStep[] = [
     {
       title: 'The Problem',
-      description: 'If you’re like most business owners, you’re stuck reacting instead of leading - unsure where yourmoney’s really going, worried about taxes, and tired of compliance-only service that keeps you “barely legal” but never strategically strong. You feel stalled, disempowered, unseen.',
+      description: 'If you’re like most business owners, you’re stuck reacting instead of leading - unsure where your money’s really going, worried about taxes, and tired of compliance-only service that keeps you “barely legal” but never strategically strong. You feel stalled, disempowered, unseen.',
       icon: '💡',
       visible: false
     },
@@ -237,20 +243,20 @@ export class AppComponent {
     {
       name: 'Hunter Jackson, CPA',
       role: 'Partner, Tax Director',
-      bio: 'Hottie with a body',
-      image: '👨‍💼'
+      bio: 'Actual Accountant',
+      image: 'assets/images/hunter.jpg'
     },
     {
-      name: 'Micah Peacock',
+      name: 'Michael P. Cock',
       role: 'Partner',
       bio: 'Has a spotify presence',
-      image: '👨‍💻'
+      image: 'assets/images/hunter.jpg'
     },
     {
-      name: 'AJ Zepeda',
+      name: 'AJ Lastname',
       role: 'Partner',
       bio: 'Exists',
-      image: '👔'
+      image: 'assets/images/hunter.jpg'
     }
   ];
 
@@ -264,5 +270,16 @@ export class AppComponent {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  sendEmail (formData:any){
+  console.log("form",formData);
+
+  // emailjs.send("mav_test","template_i870o43",
+  //   formData,
+  //   'fdo8F_xPtue8Wxvhp');
+  console.log("sent");
+  this.thankyou = true;
+
   }
 }

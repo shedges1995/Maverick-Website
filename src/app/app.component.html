@@ -1,8 +1,10 @@
 <div class="min-h-screen bg-slate-950 text-white">
       <!-- Navigation -->
-      <nav [class]="isScrolled 
-        ? 'fixed top-0 w-full bg-slate-950/95 backdrop-blur-sm border-b border-slate-800 z-50 transition-all duration-300'
-        : 'fixed top-0 w-full bg-transparent z-50 transition-all duration-300'">
+<nav 
+  [class]="isScrolled 
+    ? 'fixed top-0 w-full bg-slate-950/95 backdrop-blur-sm border-b border-slate-800 z-50 transition-all duration-300'
+    : 'fixed top-0 w-full bg-transparent border-b border-transparent z-50 transition-all duration-300'">
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-16">
             <div class="flex items-center gap-2">
@@ -18,9 +20,11 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8">
-              <a href="#features" class="text-slate-300 hover:text-white transition">Features</a>
+              <a href="#story" class="text-slate-300 hover:text-white transition" style="min-width: 60px;">Meet Us</a>
               <a href="#pricing" class="text-slate-300 hover:text-white transition">Pricing</a>
               <a href="#team" class="text-slate-300 hover:text-white transition">Team</a>
+<a routerLink="/articles" class="text-slate-300 hover:text-white transition">Articles</a>
+
               <button (click)="scrollToElement('contact')" style = "width:131px" 
               class="bg-yellow-700 px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
                 Get Started
@@ -41,10 +45,10 @@
         <!-- Mobile Menu -->
         <div *ngIf="mobileMenuOpen" class="md:hidden bg-slate-900 border-t border-slate-800">
           <div class="px-4 py-4 space-y-3">
-            <a href="#features" class="block text-slate-300 hover:text-white transition py-2">Features</a>
+            <a href="#story" class="block text-slate-300 hover:text-white transition py-2">Our Story</a>
             <a href="#pricing" class="block text-slate-300 hover:text-white transition py-2">Pricing</a>
             <a href="#team" class="block text-slate-300 hover:text-white transition py-2">Team</a>
-            <button class="w-full bg-yellow-700 px-6 py-3 rounded-lg font-semibold">
+            <button class="w-full bg-yellow-700 px-6 py-3 rounded-lg font-semibold" (click)="scrollToElement('contact')">
               Get Started
             </button>
           </div>
@@ -84,109 +88,14 @@
                 </button>
               </div>
             </div>
-            <!-- <div class="relative">
-              <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 shadow-2xl">
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between">
-                    <span class="text-slate-400">Monthly Revenue</span>
-                    <span class="text-green-400">📈</span>
-                  </div>
-                  <div class="text-4xl font-bold">$847,392</div>
-                  <div class="flex items-center gap-2 text-green-400">
-                    <span class="text-sm">+24.8% from last month</span>
-                  </div>
-                  <div class="h-32 bg-slate-950 rounded-lg mt-4 flex items-end gap-1 p-4">
-                    <div *ngFor="let height of chartData" 
-                         class="flex-1 bg-gradient-to-t from-cyan-500 to-blue-500 rounded-sm"
-                         [style.height.%]="height">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </section>
-<!-- 
-      <section class="py-20 px-4 bg-slate-950 relative overflow-hidden">
-         <div class="absolute inset-0 z-0" style="opacity:50%;     bottom: -440px;">
-          <img 
-            src="assets/images/mountain3.jpg" 
-            alt="Hero Background" 
-            class="w-full h-full object-cover"
-          />
-        </div>
 
-        <div class="max-w-7xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Who are we</h2>
-            <p class="text-xl text-slate-400">Why Maverick? Because you don't just need reports - you need results. We merge modern accounting tech with the insight of a controller's mind, challenging the "that's how it's always been done" mentality at every turn.
-We're accountants for the next generation of business leaders - bold enough to innovate,
-disciplined enough to deliver, and relentless about giving you financial clarity with an edge.</p>
-          </div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div
-                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
-              <div class="text-5xl mb-4">hi</div>
-              <h3 class="text-xl font-bold mb-3">hr</h3>
-              <p class="text-slate-400">If you’re like most business owners, you’re stuck reacting instead of leading - unsure where your
-money’s really going, worried about taxes, and tired of compliance-only service that keeps you
-“barely legal” but never strategically strong. You feel stalled, disempowered, unseen.</p>
-             
-             
-            </div>
-             <div class="line-top" style="   width: 120px;
-        height:60px;
-        z-index: -1;
-        background: transparent;
-        border: none;
-        border-top: dashed 2px orange;
-        padding: 40px 40px;
-        border-radius: 50%;
-        margin: 20px -50px 0;"> <img 
-            src="assets/images/arrow-right.png" 
-            alt="Hero Background" style="position: absolute;width:20%;margin-top:50px"
-          /></div>
-              <div><img 
-            src="assets/images/arrow-right.png" 
-            alt="Hero Background" style="position: absolute;width:20%;margin-top:50px;transform: rotateY(180deg)"
-          /></div>
-                   
-
-               <div
-                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
-              <div class="text-5xl mb-4">That’s where we come in.</div>
-              <h3 class="text-xl font-bold mb-3">hr</h3>
-              <p class="text-slate-400"> We know how chaotic entrepreneurship can feel and how impossible
-good decisions seem without good data. We’re not just CPAs - we’re builders, operators, and
-problem-solvers who thrive on clarity and challenge convention when it’s holding clients back.
-We bring the precision of accounting together with the innovation of modern tech. Our team
-leverages automation, AI, and intelligent systems so you can finally see what’s driving your
-business forward.</p>
-             
-             
-            </div>
-            <div
-                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
-              <div class="text-5xl mb-4">hi</div>
-              <h3 class="text-xl font-bold mb-3">hr</h3>
-              <p class="text-slate-400">1. Schedule a consultation
-2. Select your service package (Scout | Ranger | Maverick)
-3. Regain your momentum - with clear, actionable financial insight.
-Ignore your numbers, and you’ll keep flying blind.
-Work with Maverick, and you’ll lead your business with confidence - empowered, informed, and
-in control.</p>
-             
-             
-            </div>
-             <div></div>
-              <div></div>
-          </div>
-        </div>
-      </section> -->
+      <router-outlet></router-outlet>
 
        <!-- Story Timeline Section -->
-      <section class="py-20 px-4 bg-slate-900 relative overflow-hidden">
+      <section id="story" class="py-20 px-4 bg-slate-900 relative overflow-hidden">
         <div class="max-w-4xl mx-auto">
            <div class="absolute inset-0 z-0" style="opacity:50%;     bottom: -440px;">
           <img 
@@ -291,10 +200,10 @@ company scales, your financial systems scale with you.</p>
           <div class="grid md:grid-cols-4 gap-8">
             <div *ngFor="let plan of plans" 
                  [class]="plan.popular 
-                   ? 'rounded-2xl p-8 border-2 bg-gradient-to-br from-slate-800 to-slate-900 border-cyan-500 relative' 
+                   ? 'rounded-2xl p-8 border-2 bg-gradient-to-br from-slate-800 to-slate-900 border-yellow-700 relative' 
                    : 'rounded-2xl p-8 border-2 bg-slate-900 border-slate-700'" style="    min-width: 300px;">
               <div *ngIf="plan.popular" class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span class="bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-1 rounded-full text-sm font-semibold">
+                <span class="bg-yellow-700 px-4 py-1 rounded-full text-sm font-semibold">
                   MOST POPULAR
                 </span>
               </div>
@@ -311,11 +220,12 @@ company scales, your financial systems scale with you.</p>
               </button> -->
               <div class="space-y-3">
                 <div *ngFor="let feature of plan.features" class="flex items-start gap-3">
-                  <span class="text-cyan-400">✓</span>
+                  <span class="text-yellow-700">✓</span>
                   <span class="text-slate-300">{{ feature }}</span>
                 </div>
               </div>
-              <button *ngIf="plan.isCustom" class="w-full py-3 rounded-lg font-semibold mb-6 transition bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90" style="margin-top: 100px;">
+              <button *ngIf="plan.isCustom" (click)="scrollToElement('contact')"
+              class="w-full py-3 rounded-lg font-semibold mb-6 transition bg-gradient-to-r bg-yellow-700 hover:opacity-90" style="margin-top: 100px;">
                 Let's work together
               </button>
             </div>
@@ -333,10 +243,10 @@ company scales, your financial systems scale with you.</p>
           </div>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div *ngFor="let member of team" 
-                 class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-cyan-500 transition text-center">
-              <div class="text-6xl mb-4">{{ member.image }}</div>
+                 class="bg-slate-800 rounded-xl p-6 border border-slate-700 transition text-center">
+              <img class="text-6xl mb-4" src="{{member.image}}">
               <h3 class="text-xl font-bold mb-1">{{ member.name }}</h3>
-              <p class="text-cyan-400 mb-3 font-semibold">{{ member.role }}</p>
+              <p class="text-yellow-700 mb-3 font-semibold">{{ member.role }}</p>
               <p class="text-slate-400 text-sm">{{ member.bio }}</p>
             </div>
           </div>
@@ -360,27 +270,46 @@ company scales, your financial systems scale with you.</p>
             Start Your Free Trial →
           </button> -->
                   <div class="mx-auto text-center rounded-2xl">
-          <form>
-            <div class="mb-6 text-left">
-              <label for="name" class="block mb-2 text-slate-300 font-semibold">Name*</label>
-              <input id="name" name="name" type="text" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-cyan-500" placeholder="Your Name" required>
-            </div>
-            <div class="mb-6 text-left">
-              <label for="phone" class="block mb-2 text-slate-300 font-semibold">Phone Number*</label>
-              <input id="phone" name="phone" type="tel" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-cyan-500" placeholder="(123) 456-7890" required>
-            </div>
-            <div class="mb-6 text-left">
-              <label for="email" class="block mb-2 text-slate-300 font-semibold">Email*</label>
-              <input id="email" name="email" type="email" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-cyan-500" placeholder="you@email.com" required>
-            </div>
-            <div class="mb-8 text-left">
-              <label for="message" class="block mb-2 text-slate-300 font-semibold">Message</label>
-              <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-cyan-500" placeholder="How can we help you?" required></textarea>
-            </div>
-            <button type="submit" style="float: right;" class="bg-yellow-700 px-10 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
-              Send Message
-            </button>
-          </form>
+          <!-- <form> -->
+          <form *ngIf="!thankyou" #myForm="ngForm" (ngSubmit)="sendEmail(myForm.value)">
+
+          <div class="mb-6 text-left">
+            <label for="name" class="block mb-2 text-slate-300 font-semibold">Name*</label>
+            <input id="name" type="text"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="Your Name" required name="from_name" ngModel>
+          </div>
+
+          <div class="mb-6 text-left">
+            <label for="phone" class="block mb-2 text-slate-300 font-semibold">Phone Number*</label>
+            <input id="phone" type="tel"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="(123) 456-7890" name="number" ngModel>
+          </div>
+
+          <div class="mb-6 text-left">
+            <label for="email" class="block mb-2 text-slate-300 font-semibold">Email*</label>
+            <input id="email" type="email"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="you@email.com" required name="reply_to" ngModel>
+          </div>
+
+          <div class="mb-8 text-left">
+            <label for="message" class="block mb-2 text-slate-300 font-semibold">Message</label>
+            <textarea id="message" rows="5"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="How can we help you?" required name="message" ngModel></textarea>
+          </div>
+
+          <button type="submit"
+            style="float: right;" class="bg-yellow-700 px-10 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
+            Send Message
+          </button>
+        </form>
+        <div *ngIf="thankyou" class="text-2xl font-bold text-yellow-700">
+          Thank you for reaching out! We will contact you soon.
+          </div>
+        
         </div>
           
         </div>
@@ -392,21 +321,11 @@ company scales, your financial systems scale with you.</p>
           <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">Our customers have nice things to say</h2>
             <p class="text-xl text-slate-400">See what our customers are saying about Maverick</p>
-            <!-- <div class="flex items-center justify-center gap-2 mt-6">
-              <div class="flex gap-1">
-                <span class="text-yellow-400 text-2xl">★</span>
-                <span class="text-yellow-400 text-2xl">★</span>
-                <span class="text-yellow-400 text-2xl">★</span>
-                <span class="text-yellow-400 text-2xl">★</span>
-                <span class="text-yellow-400 text-2xl">★</span>
-              </div>
-              <span class="text-slate-400 text-lg">4.9/5 from 2,847 reviews</span>
-            </div> -->
           </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div *ngFor="let review of reviews" 
-                 class="bg-slate-900 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition transform hover:-translate-y-1 shadow-xl">
+                 class="bg-slate-900 rounded-xl p-8 border border-slate-700  transition transform hover:-translate-y-1 shadow-xl">
               <!-- Rating Stars -->
               <div class="flex gap-1 mb-4">
                 <span *ngFor="let star of [1,2,3,4,5]" 
@@ -416,19 +335,19 @@ company scales, your financial systems scale with you.</p>
               </div>
 
               <!-- Review Text -->
-              <p class="text-slate-300 mb-6 leading-relaxed italic">
+              <p class="text-slate-300 mb-6 leading-relaxed italic" style="min-height: 120px;">
                 "{{ review.text }}"
               </p>
 
               <!-- Reviewer Info -->
               <div class="flex items-center gap-4 pt-4 border-t border-slate-700">
-                <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-2xl">
+                <!-- <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-2xl">
                   {{ review.avatar }}
-                </div>
+                </div> -->
                 <div>
                   <h4 class="font-bold text-white">{{ review.name }}</h4>
                   <p class="text-sm text-slate-400">{{ review.role }}</p>
-                  <p class="text-sm text-cyan-400">{{ review.company }}</p>
+                  <p class="text-sm text-yellow-700">{{ review.company }}</p>
                 </div>
               </div>
             </div>
@@ -436,6 +355,8 @@ company scales, your financial systems scale with you.</p>
 
         </div>
       </section>
+
+
 
 
 
