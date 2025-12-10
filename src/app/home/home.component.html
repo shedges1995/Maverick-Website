@@ -1,1 +1,438 @@
-<p>home works!</p>
+<div class="min-h-screen bg-slate-950 text-white">
+      <!-- Navigation -->
+<nav 
+  [class]="isScrolled 
+    ? 'fixed top-0 w-full bg-slate-950/95 backdrop-blur-sm border-b border-slate-800 z-50 transition-all duration-300'
+    : 'fixed top-0 w-full bg-transparent border-b border-transparent z-50 transition-all duration-300'">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+              <!-- <div class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">
+                A
+              </div> -->
+               <img 
+            src="assets/images/mav2.jpg" 
+            alt="Hero Background"
+            style="width: 13%;"
+          />
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+              <a href="#story" class="text-slate-300 hover:text-white transition" style="min-width: 60px;">Meet Us</a>
+              <a href="#pricing" class="text-slate-300 hover:text-white transition">Pricing</a>
+              <a href="#team" class="text-slate-300 hover:text-white transition">Team</a>
+<a routerLink="/articles" class="text-slate-300 hover:text-white transition">Articles</a>
+
+              <button (click)="scrollToElement('contact')" style = "width:131px" 
+              class="bg-yellow-700 px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
+                Get Started
+              </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button 
+              (click)="toggleMobileMenu()"
+              class="md:hidden"
+            >
+              <span *ngIf="!mobileMenuOpen">☰</span>
+              <span *ngIf="mobileMenuOpen">✕</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div *ngIf="mobileMenuOpen" class="md:hidden bg-slate-900 border-t border-slate-800">
+          <div class="px-4 py-4 space-y-3">
+            <a href="#story" class="block text-slate-300 hover:text-white transition py-2">Our Story</a>
+            <a href="#pricing" class="block text-slate-300 hover:text-white transition py-2">Pricing</a>
+            <a href="#team" class="block text-slate-300 hover:text-white transition py-2">Team</a>
+            <button class="w-full bg-yellow-700 px-6 py-3 rounded-lg font-semibold" (click)="scrollToElement('contact')">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="pt-32 pb-20 px-4 relative min-h-screen flex items-center">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0" style="opacity:50%">
+          <img 
+            src="assets/images/horseshit.jpg" 
+            alt="Hero Background" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="max-w-7xl mx-auto relative z-10 w-full">
+          <div class="grid lg:grid-cols-3 gap-12 items-center">
+            <div>
+  
+              <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Where Small Businesses Find Big
+                <span class=" text-yellow-700"> Clarity</span>
+              </h1>
+              <p class="text-xl text-slate-400 mb-8">
+                Because excellent service shouldn't be elusive and excellent advice should never stay behind the curtain.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button (click)="scrollToElement('contact')" 
+                class="bg-yellow-700 px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition flex items-center justify-center gap-2"
+                >
+                  Contact Us →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <router-outlet></router-outlet>
+
+
+      <!-- About the Company Section -->
+      <section class="py-20 px-4 bg-slate-950">
+        <div class="max-w-7xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">About Maverick</h2>
+            <p class="text-xl text-slate-400">WE DO THE TAXES</p>
+          </div>
+
+          <!-- Mission Statement with Image -->
+          <div class="grid md:grid-cols-2 gap-12 items-center mb-20 opacity-0 transform translate-y-8 transition-all duration-700"
+          [class.opacity-100]="aboutSections.mission.visible"
+               [class.translate-y-0]="aboutSections.mission.visible"
+               data-about-section="mission">
+            <div>
+              <h3 class="text-3xl font-bold mb-6 text-cyan-400">Our Mission</h3>
+              <p class="text-lg text-slate-300 leading-relaxed mb-4">
+                If you’re like most business owners, you’re stuck reacting instead of leading - unsure where your money’s really going, worried about taxes, and tired of compliance-only service that keeps you “barely legal” but never strategically strong. You feel stalled, disempowered, unseen.
+              </p>
+              <p class="text-lg text-slate-300 leading-relaxed">
+                That’s where we come in. We know how chaotic entrepreneurship can feel and how impossible good decisions seem without good data. We’re not just CPAs - we’re builders, operators, and problem-solvers who thrive on clarity and challenge convention when it’s holding clients back. We bring the precision of accounting together with the innovation of modern tech.
+              </p>
+            </div>
+            <div class="relative">
+              <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                <img 
+                  src="assets/images/back3.jpg" 
+                  alt="AcctPro Team" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
+              </div>
+              <!-- <div class="absolute -bottom-6 -left-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-6 shadow-2xl max-w-xs">
+                <p class="text-2xl font-bold">10,000+</p>
+                <p class="text-sm">Happy Customers Worldwide</p>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Journey with Images -->
+          <div class="space-y-16">
+            <!-- Founding Story -->
+            <div class="grid md:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-8 transition-all duration-700"
+                 [class.opacity-100]="aboutSections.founding.visible"
+                 [class.translate-y-0]="aboutSections.founding.visible"
+                 data-about-section="founding">
+                  <div class="order-2 md:order-1">
+                <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                  <img 
+                    src="assets/images/back6.jpg" 
+                    alt="AcctPro Early Days" 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <!-- <span class="inline-block bg-slate-800 px-4 py-2 rounded-full text-sm font-semibold text-cyan-400 mb-4">
+                  2019 - THE BEGINNING
+                </span> -->
+                <h3 class="text-3xl font-bold mb-4">We do things differently around here</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                  Our team leverages automation, AI, and intelligent systems so you can finally see what’s driving your business forward. 
+                <br>1. Schedule a consultation <br>2. Select your service package (Scout | Ranger | Maverick) <br>3. Regain your momentum - with clear, actionable financial insight.
+                  <br><br>Ignore your numbers, and you’ll keep flying blind.
+                </p>
+              
+              </div>
+            </div>
+
+            <!-- Growth Story -->
+              <div class="grid md:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-8 transition-all duration-700"
+                 [class.opacity-100]="aboutSections.growth.visible"
+                 [class.translate-y-0]="aboutSections.growth.visible"
+                 data-about-section="growth">
+              <div>
+                <!-- <span class="inline-block bg-slate-800 px-4 py-2 rounded-full text-sm font-semibold text-cyan-400 mb-4">
+                  2021 - RAPID GROWTH
+                </span> -->
+                <h3 class="text-3xl font-bold mb-4">Why Maverick?</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                  Because you don’t just need reports - you need results.
+We merge modern accounting tech with the insight of a controller’s mind, challenging the “that’s
+how it’s always been done” mentality at every turn.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                  We’re accountants for the next generation of business leaders - bold enough to innovate,
+disciplined enough to deliver, and relentless about giving you financial clarity with an edge.
+                </p>
+              </div>
+              <div>
+                <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                  <img 
+                    src="assets/images/back1.jpg" 
+                    alt="AcctPro Team Growing" 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Today -->
+                <div class="grid md:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-8 transition-all duration-700"
+                 [class.opacity-100]="aboutSections.today.visible"
+                 [class.translate-y-0]="aboutSections.today.visible"
+                 data-about-section="today">
+              <div class="order-2 md:order-1">
+                <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                  <img 
+                    src="assets/images/back2.jpg" 
+                    alt="AcctPro Today" 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <!-- <span class="inline-block bg-slate-800 px-4 py-2 rounded-full text-sm font-semibold text-cyan-400 mb-4">
+                  Say something
+                </span> -->
+                <h3 class="text-3xl font-bold mb-4">Leading the Industry</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                  Today, AcctPro serves over 10,000 businesses across 30 countries. We've processed more 
+                  than $2 billion in transactions and saved our customers countless hours. But we're not 
+                  resting on our laurels.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                  Our team of 150+ professionals continues to push boundaries with AI-powered features, 
+                  expanded integrations, and tools that anticipate the needs of tomorrow's businesses. 
+                  The future of accounting is here, and we're just getting started.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Banner -->
+          <div class="mt-20 bg-gradient-to-r from-cyan-900 to-blue-900 rounded-2xl p-12 border border-cyan-500/30">
+            <h3 class="text-3xl font-bold mb-8 text-center">By The Numbers</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">300</div>
+                <div class="text-slate-300">Active Customers</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">47</div>
+                <div class="text-slate-300">Tax Returns</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">7</div>
+                <div class="text-slate-300">Team Members</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">2</div>
+                <div class="text-slate-300">Countries Served</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Pricing Section -->
+      <section id="pricing" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">A Modern, Tiered Approach</h2>
+            <p class="text-xl text-slate-400">Maverick offers three service levels that grow with your business — from foundational
+bookkeeping to fully outsourced Controller services. Each builds on the one before it, so as your
+company scales, your financial systems scale with you.</p>
+          </div>
+          <div class="grid md:grid-cols-4 gap-8">
+            <div *ngFor="let plan of plans" 
+                 [class]="plan.popular 
+                   ? 'rounded-2xl p-8 border-2 bg-gradient-to-br from-slate-800 to-slate-900 border-yellow-700 relative' 
+                   : 'rounded-2xl p-8 border-2 bg-slate-900 border-slate-700'" style="    min-width: 300px;">
+              <div *ngIf="plan.popular" class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-yellow-700 px-4 py-1 rounded-full text-sm font-semibold">
+                  MOST POPULAR
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">{{ plan.name }}</h3>
+              <p class="text-slate-400 mb-6" style="min-height: 70px;">{{ plan.description }}</p>
+              <div class="mb-6">
+                <span class="text-5xl font-bold">${{ plan.price }}</span>
+                <span class="text-slate-400">/month</span>
+              </div>
+              <!-- <button [class]="plan.popular
+                ? 'w-full py-3 rounded-lg font-semibold mb-6 transition bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90'
+                : 'w-full py-3 rounded-lg font-semibold mb-6 transition bg-slate-800 hover:bg-slate-700'">
+                Get Started
+              </button> -->
+              <div class="space-y-3">
+                <div *ngFor="let feature of plan.features" class="flex items-start gap-3">
+                  <span class="text-yellow-700">✓</span>
+                  <span class="text-slate-300">{{ feature }}</span>
+                </div>
+              </div>
+              <button *ngIf="plan.isCustom" (click)="scrollToElement('contact')"
+              class="w-full py-3 rounded-lg font-semibold mb-6 transition bg-gradient-to-r bg-yellow-700 hover:opacity-90" style="margin-top: 100px;">
+                Let's work together
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="team" class="py-20 px-4 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Meet the Team</h2>
+            <p class="text-xl text-slate-400">Led by industry veterans from top tech and finance companies</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div *ngFor="let member of team" 
+                 class="bg-slate-800 rounded-xl p-6 border border-slate-700 transition text-center">
+              <img class="text-6xl mb-4" src="{{member.image}}">
+              <h3 class="text-xl font-bold mb-1">{{ member.name }}</h3>
+              <p class="text-yellow-700 mb-3 font-semibold">{{ member.role }}</p>
+              <p class="text-slate-400 text-sm" style="font-style: italic;">"{{ member.blurb }}"</p>
+              <div *ngIf="member.showBio" class="mt-2 py-20">
+                <p class="text-slate-400 text-sm text-left" [innerHtml]="member.bio"></p>
+              </div>
+              <a (click)="member.showBio = !member.showBio" style="cursor: pointer;">{{ member.showBio ? 'Less' : 'More' }}</a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Transform Your Accounting?
+          </h2>
+          <p class="text-xl text-slate-400 mb-8">
+            
+          We merge modern accounting tech with the insight of a controller’s mind, challenging the “that’s
+          how it’s always been done” mentality at every turn.
+          We’re accountants for the next generation of business leaders - bold enough to innovate,
+          disciplined enough to deliver, and relentless about giving you financial clarity with an edge.
+          </p>
+
+          <!-- <button class="bg-gradient-to-r from-cyan-500 to-blue-600 px-12 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
+            Start Your Free Trial →
+          </button> -->
+                  <div class="mx-auto text-center rounded-2xl">
+          <!-- <form> -->
+          <form *ngIf="!thankyou" #myForm="ngForm" (ngSubmit)="sendEmail(myForm.value)">
+
+          <div class="mb-6 text-left">
+            <label for="name" class="block mb-2 text-slate-300 font-semibold">Name*</label>
+            <input id="name" type="text"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="Your Name" required name="from_name" ngModel>
+          </div>
+
+          <div class="mb-6 text-left">
+            <label for="phone" class="block mb-2 text-slate-300 font-semibold">Phone Number*</label>
+            <input id="phone" type="tel"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="(123) 456-7890" name="number" ngModel>
+          </div>
+
+          <div class="mb-6 text-left">
+            <label for="email" class="block mb-2 text-slate-300 font-semibold">Email*</label>
+            <input id="email" type="email"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="you@email.com" required name="reply_to" ngModel>
+          </div>
+
+          <div class="mb-8 text-left">
+            <label for="message" class="block mb-2 text-slate-300 font-semibold">Message</label>
+            <textarea id="message" rows="5"
+              class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-yellow-700"
+              placeholder="How can we help you?" required name="message" ngModel></textarea>
+          </div>
+
+          <button type="submit"
+            style="float: right;" class="bg-yellow-700 px-10 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
+            Send Message
+          </button>
+        </form>
+        <div *ngIf="thankyou" class="text-2xl font-bold text-yellow-700">
+          Thank you for reaching out! We will contact you soon.
+          </div>
+        
+        </div>
+          
+        </div>
+      </section>
+
+       <!-- Reviews Section -->
+      <section class="py-20 px-4 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Our customers have nice things to say</h2>
+            <p class="text-xl text-slate-400">See what our customers are saying about Maverick</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div *ngFor="let review of reviews" 
+                 class="bg-slate-900 rounded-xl p-8 border border-slate-700  transition transform hover:-translate-y-1 shadow-xl">
+              <!-- Rating Stars -->
+              <div class="flex gap-1 mb-4">
+                <span *ngFor="let star of [1,2,3,4,5]" 
+                      [class]="star <= review.rating ? 'text-yellow-400' : 'text-slate-600'">
+                  ★
+                </span>
+              </div>
+
+              <!-- Review Text -->
+              <p class="text-slate-300 mb-6 leading-relaxed italic" style="min-height: 120px;">
+                "{{ review.text }}"
+              </p>
+
+              <!-- Reviewer Info -->
+              <div class="flex items-center gap-4 pt-4 border-t border-slate-700">
+                <!-- <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-2xl">
+                  {{ review.avatar }}
+                </div> -->
+                <div>
+                  <h4 class="font-bold text-white">{{ review.name }}</h4>
+                  <p class="text-sm text-slate-400">{{ review.role }}</p>
+                  <p class="text-sm text-yellow-700">{{ review.company }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center text-slate-500">
+          <p>&copy; {{currentYear}} Maverick. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>

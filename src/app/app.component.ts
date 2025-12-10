@@ -27,6 +27,8 @@ interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  blurb: string;
+  showBio: boolean;
   image: string;
 }
 
@@ -58,24 +60,6 @@ export class AppComponent {
   contactForm = new FormData;
   thankyou = false;
 
-  ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', this.onScroll.bind(this));
-      this.checkStoryVisibility();
-    }
-    this.currentYear = new Date().getFullYear();
-  }
-
-  ngOnDestroy(): void {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('scroll', this.onScroll.bind(this));
-    }
-  }
-
-  onScroll(): void {
-    this.isScrolled = window.scrollY > 50;
-    this.checkStoryVisibility();
-  }
 
   storySteps: StoryStep[] = [
     {
@@ -150,6 +134,56 @@ export class AppComponent {
     }
   ];
 
+  aboutSections = {
+    mission: { visible: false },
+    founding: { visible: false },
+    growth: { visible: false },
+    today: { visible: false },
+    stats: { visible: false }
+  };
+
+    ngOnInit(): void {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.onScroll.bind(this));
+      this.checkAboutVisibility();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.onScroll.bind(this));
+    }
+  }
+
+  onScroll(): void {
+    this.isScrolled = window.scrollY > 50;
+    this.checkAboutVisibility();
+  }
+
+
+
+  checkAboutVisibility(): void {
+    if (typeof window === 'undefined') return;
+
+    const windowHeight = window.innerHeight;
+    const scrollTop = window.scrollY;
+
+    const sections = ['mission', 'values', 'founding', 'growth', 'today', 'stats'];
+    
+    sections.forEach((sectionName) => {
+      const element = document.querySelector(`[data-about-section="${sectionName}"]`);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + scrollTop;
+        const elementVisible = (scrollTop + windowHeight) > elementTop + 150;
+        
+        if (elementVisible && !this.aboutSections[sectionName as keyof typeof this.aboutSections].visible) {
+          this.aboutSections[sectionName as keyof typeof this.aboutSections].visible = true;
+        }
+      }
+    });
+  }
+
 
   checkStoryVisibility(): void {
     if (typeof window === 'undefined') return;
@@ -173,21 +207,12 @@ export class AppComponent {
     });
   }
   
-  chartData = [40, 60, 45, 75, 55, 85, 70, 90, 65, 95, 80, 100];
   
-  features = [
-    { icon: '⚡', title: 'Lightning Fast', desc: 'Process thousands of transactions in seconds with our optimized engine' },
-    { icon: '🛡️', title: 'Bank-Grade Security', desc: 'Military-grade encryption and SOC 2 compliance keep your data safe' },
-    { icon: '📊', title: 'Real-Time Analytics', desc: 'Make data-driven decisions with live dashboards and AI insights' },
-    { icon: '👥', title: 'Team Collaboration', desc: 'Work seamlessly with your team, accountant, and stakeholders' },
-    { icon: '🏆', title: 'Award Winning', desc: 'Recognized as the #1 accounting platform by industry experts' },
-    { icon: '📈', title: 'Smart Forecasting', desc: 'Predict cash flow and plan growth with AI-powered projections' }
-  ];
 
   plans: Plan[] = [
     {
       name: 'The Scout',
-      price: '29',
+      price: '350',
       description: 'Ideal for businesses ready to get organized and gain financial visibility',
       features: [
         'We occupy the bookkeeping and accounting seat',
@@ -199,7 +224,7 @@ export class AppComponent {
     },
     {
       name: 'The Ranger',
-      price: '79',
+      price: '650',
       description: 'Perfect for companies outgrowing basic bookkeeping',
       features: [
         'Everything in The Scout',
@@ -214,7 +239,7 @@ export class AppComponent {
     },
     {
       name: 'The Maverick',
-      price: '199',
+      price: '1,500',
       description: 'You get the sophistication of an in-house CFO without the overhead',
       features: [
         'Everything in the Ranger',
@@ -242,20 +267,26 @@ export class AppComponent {
   team: TeamMember[] = [
     {
       name: 'Hunter Jackson, CPA',
-      role: 'Partner, Tax Director',
+      role: 'Tax Director',
       bio: 'Actual Accountant',
+      blurb:'Exists',
+      showBio: false,
       image: 'assets/images/hunter.jpg'
     },
     {
       name: 'Michael P. Cock',
       role: 'Partner',
-      bio: 'Has a spotify presence',
+      bio: 'I grew up in a family of educators, graduated summa cum laude from the University of Houston, then spent years touring as a musician and serving as a worship leader before eventually settling down, meeting my wife, and starting a family. When our kids came along, I transitioned out of ministry, earned my Series 7 and 66, and worked as a paraplanner for investment firms around DFW. <br><br> We moved to Tyler to raise our kids near their grandparents, and I stepped into the world of estate-planning operations, learning the ins and outs of trusts, LLCs, and contract law. After the pandemic, I launched C-Suite - a back-office management shop built around modern, straightforward accounting, payroll, and tax support. That entrepreneurial streak eventually led to Maverick, formed in 2025 when C-Suite merged with Anthony Z Consulting and HJ Taxes to build a firm determined to ditch outdated methods and rethink how this work gets done. <br><br>Outside the office, I’m usually on our land, at one of the kids’ events, on a motorcycle, playing guitar, or spending time with my wife. We live just outside Tyler with our three amazing kids, and at the end of the day, my long-term ambition is simple: I want to be a rancher.',
+        blurb:'I didn’t take a traditional path into accounting - and honestly, that’s probably why I enjoy it so much.',
+      showBio: false,
       image: 'assets/images/hunter.jpg'
     },
     {
-      name: 'AJ Lastname',
+      name: 'AJ Zepeda',
       role: 'Partner',
       bio: 'Exists',
+        blurb:'Exists',
+      showBio: false,
       image: 'assets/images/hunter.jpg'
     }
   ];

@@ -70,9 +70,7 @@
         <div class="max-w-7xl mx-auto relative z-10 w-full">
           <div class="grid lg:grid-cols-3 gap-12 items-center">
             <div>
-              <!-- <div class="inline-block bg-slate-800 rounded-full px-4 py-2 mb-6">
-                <span class="text-cyan-400 font-semibold">Now trusted by 10,000+ businesses</span>
-              </div> -->
+  
               <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                 Where Small Businesses Find Big
                 <span class=" text-yellow-700"> Clarity</span>
@@ -94,98 +92,164 @@
 
       <router-outlet></router-outlet>
 
-       <!-- Story Timeline Section -->
-      <section id="story" class="py-20 px-4 bg-slate-900 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto">
-           <div class="absolute inset-0 z-0" style="opacity:50%;     bottom: -440px;">
-          <img 
-            src="assets/images/mountain3.jpg" 
-            alt="Hero Background" 
-            class="w-full h-full object-cover"
-          />
-        </div>
-          
-          <div class="text-center mb-20">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Story</h2>
-            <p class="text-xl text-slate-400">Why Maverick? Because you don't just need reports - you need results. We merge modern accounting tech with the insight of a controller's mind, challenging the "that's how it's always been done" mentality at every turn.
-We're accountants for the next generation of business leaders - bold enough to innovate,
-disciplined enough to deliver, and relentless about giving you financial clarity with an edge.</p>
+
+      <!-- About the Company Section -->
+      <section class="py-20 px-4 bg-slate-950">
+        <div class="max-w-7xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">About Maverick</h2>
+            <p class="text-xl text-slate-400">WE DO THE TAXES</p>
           </div>
 
-          <div class="relative">
-            <!-- Vertical dotted line (hidden on mobile) -->
-            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5">
-              <div class="w-full h-full border-l-2 border-dotted border-yellow-700" style="    border-left-width: 10px;"></div>
+          <!-- Mission Statement with Image -->
+          <div class="grid md:grid-cols-2 gap-12 items-center mb-20 opacity-0 transform translate-y-8 transition-all duration-700"
+          [class.opacity-100]="aboutSections.mission.visible"
+               [class.translate-y-0]="aboutSections.mission.visible"
+               data-about-section="mission">
+            <div>
+              <h3 class="text-3xl font-bold mb-6 text-cyan-400">Our Mission</h3>
+              <p class="text-lg text-slate-300 leading-relaxed mb-4">
+                If you’re like most business owners, you’re stuck reacting instead of leading - unsure where your money’s really going, worried about taxes, and tired of compliance-only service that keeps you “barely legal” but never strategically strong. You feel stalled, disempowered, unseen.
+              </p>
+              <p class="text-lg text-slate-300 leading-relaxed">
+                That’s where we come in. We know how chaotic entrepreneurship can feel and how impossible good decisions seem without good data. We’re not just CPAs - we’re builders, operators, and problem-solvers who thrive on clarity and challenge convention when it’s holding clients back. We bring the precision of accounting together with the innovation of modern tech.
+              </p>
+            </div>
+            <div class="relative">
+              <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                <img 
+                  src="assets/images/back3.jpg" 
+                  alt="AcctPro Team" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
+              </div>
+              <!-- <div class="absolute -bottom-6 -left-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-6 shadow-2xl max-w-xs">
+                <p class="text-2xl font-bold">10,000+</p>
+                <p class="text-sm">Happy Customers Worldwide</p>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Journey with Images -->
+          <div class="space-y-16">
+            <!-- Founding Story -->
+            <div class="grid md:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-8 transition-all duration-700"
+                 [class.opacity-100]="aboutSections.founding.visible"
+                 [class.translate-y-0]="aboutSections.founding.visible"
+                 data-about-section="founding">
+                  <div class="order-2 md:order-1">
+                <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                  <img 
+                    src="assets/images/back6.jpg" 
+                    alt="AcctPro Early Days" 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <!-- <span class="inline-block bg-slate-800 px-4 py-2 rounded-full text-sm font-semibold text-cyan-400 mb-4">
+                  2019 - THE BEGINNING
+                </span> -->
+                <h3 class="text-3xl font-bold mb-4">We do things differently around here</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                  Our team leverages automation, AI, and intelligent systems so you can finally see what’s driving your business forward. 
+                <br>1. Schedule a consultation <br>2. Select your service package (Scout | Ranger | Maverick) <br>3. Regain your momentum - with clear, actionable financial insight.
+                  <br><br>Ignore your numbers, and you’ll keep flying blind.
+                </p>
+              
+              </div>
             </div>
 
-            <!-- Story Steps -->
-            <div *ngFor="let step of storySteps; let i = index" 
-                 class="relative mb-16 last:mb-0"
-                 [attr.data-story-index]="i">
-              
-              <!-- Animated connecting line -->
-              <div *ngIf="i < storySteps.length - 1" 
-                   class="hidden md:block absolute left-1/2 w-0.5 h-16 overflow-hidden"
-                   [style.top.px]="120">
-                <div class="w-full bg-cyan-500 animate-line"
-                     [class.line-visible]="step.visible"
-                     style="height: 100%; transform: translateY(-100%);"></div>
+            <!-- Growth Story -->
+              <div class="grid md:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-8 transition-all duration-700"
+                 [class.opacity-100]="aboutSections.growth.visible"
+                 [class.translate-y-0]="aboutSections.growth.visible"
+                 data-about-section="growth">
+              <div>
+                <!-- <span class="inline-block bg-slate-800 px-4 py-2 rounded-full text-sm font-semibold text-cyan-400 mb-4">
+                  2021 - RAPID GROWTH
+                </span> -->
+                <h3 class="text-3xl font-bold mb-4">Why Maverick?</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                  Because you don’t just need reports - you need results.
+We merge modern accounting tech with the insight of a controller’s mind, challenging the “that’s
+how it’s always been done” mentality at every turn.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                  We’re accountants for the next generation of business leaders - bold enough to innovate,
+disciplined enough to deliver, and relentless about giving you financial clarity with an edge.
+                </p>
               </div>
-
-              <div class="grid md:grid-cols-2 gap-8 items-center">
-                <!-- Left side (alternates based on index) -->
-                <div [class]="i % 2 === 0 ? 'md:text-left' : 'md:order-2'">
-                  <div class="opacity-0 transform translate-y-8 transition-all duration-700"
-                       [class.opacity-100]="step.visible"
-                       [class.translate-y-0]="step.visible">
-                    <div class="inline-block bg-slate-800 rounded-2xl p-8 border border-slate-700 shadow-xl max-w-md">
-                      <h3 class="text-2xl font-bold mb-3 text-yellow-700">{{ step.title }}</h3>
-                      <p class="text-slate-300 leading-relaxed" innerHTML="{{ step.description }}"></p>
-                    </div>
-                  </div>
+              <div>
+                <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                  <img 
+                    src="assets/images/back1.jpg" 
+                    alt="AcctPro Team Growing" 
+                    class="w-full h-full object-cover"
+                  />
                 </div>
+              </div>
+            </div>
 
-                <!-- Center icon -->
-                <!-- <div [class]="i % 2 === 0 ? '' : 'md:order-1'" 
-                     class="flex justify-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
-                  <div class="opacity-0 scale-50 transition-all duration-700"
-                       [class.opacity-100]="step.visible"
-                       [class.scale-100]="step.visible">
-                    <div class="bg-gradient-to-br from-cyan-500 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center shadow-2xl border-4 border-slate-900">
-                      <span class="text-4xl">{{ step.icon }}</span>
-                    </div>
-                  </div>
-                </div> -->
+            <!-- Today -->
+                <div class="grid md:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-8 transition-all duration-700"
+                 [class.opacity-100]="aboutSections.today.visible"
+                 [class.translate-y-0]="aboutSections.today.visible"
+                 data-about-section="today">
+              <div class="order-2 md:order-1">
+                <div class="aspect-video rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                  <img 
+                    src="assets/images/back2.jpg" 
+                    alt="AcctPro Today" 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <!-- <span class="inline-block bg-slate-800 px-4 py-2 rounded-full text-sm font-semibold text-cyan-400 mb-4">
+                  Say something
+                </span> -->
+                <h3 class="text-3xl font-bold mb-4">Leading the Industry</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                  Today, AcctPro serves over 10,000 businesses across 30 countries. We've processed more 
+                  than $2 billion in transactions and saved our customers countless hours. But we're not 
+                  resting on our laurels.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                  Our team of 150+ professionals continues to push boundaries with AI-powered features, 
+                  expanded integrations, and tools that anticipate the needs of tomorrow's businesses. 
+                  The future of accounting is here, and we're just getting started.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                <!-- Right side (placeholder for alternating layout) -->
-                <div [class]="i % 2 === 0 ? '' : ''"></div>
+          <!-- Stats Banner -->
+          <div class="mt-20 bg-gradient-to-r from-cyan-900 to-blue-900 rounded-2xl p-12 border border-cyan-500/30">
+            <h3 class="text-3xl font-bold mb-8 text-center">By The Numbers</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">300</div>
+                <div class="text-slate-300">Active Customers</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">47</div>
+                <div class="text-slate-300">Tax Returns</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">7</div>
+                <div class="text-slate-300">Team Members</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-cyan-400 mb-2">2</div>
+                <div class="text-slate-300">Countries Served</div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
-
-      <!-- Features Section
-      <section id="features" class="py-20 px-4 bg-slate-900">
-        <div class="max-w-7xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Who are we</h2>
-            <p class="text-xl text-slate-400">Why Maverick? Because you don't just need reports - you need results. We merge modern accounting tech with the insight of a controller's mind, challenging the "that's how it's always been done" mentality at every turn.
-We're accountants for the next generation of business leaders - bold enough to innovate,
-disciplined enough to deliver, and relentless about giving you financial clarity with an edge.</p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div *ngFor="let feature of features" 
-                 class="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-cyan-500 transition group">
-              <div class="text-5xl mb-4">{{ feature.icon }}</div>
-              <h3 class="text-xl font-bold mb-3">{{ feature.title }}</h3>
-              <p class="text-slate-400">{{ feature.desc }}</p>
-            </div>
-          </div>
-        </div>
-      </section> -->
 
 
       <!-- Pricing Section -->
@@ -247,7 +311,12 @@ company scales, your financial systems scale with you.</p>
               <img class="text-6xl mb-4" src="{{member.image}}">
               <h3 class="text-xl font-bold mb-1">{{ member.name }}</h3>
               <p class="text-yellow-700 mb-3 font-semibold">{{ member.role }}</p>
-              <p class="text-slate-400 text-sm">{{ member.bio }}</p>
+              <p class="text-slate-400 text-sm" style="font-style: italic;">"{{ member.blurb }}"</p>
+              <div *ngIf="member.showBio" class="mt-2 py-20">
+                <p class="text-slate-400 text-sm text-left" [innerHtml]="member.bio"></p>
+              </div>
+              <a (click)="member.showBio = !member.showBio" style="cursor: pointer;">{{ member.showBio ? 'Less' : 'More' }}</a>
+
             </div>
           </div>
         </div>
