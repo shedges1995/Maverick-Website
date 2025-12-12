@@ -40,29 +40,31 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": true
-                }
-              },
-              "sourceMap": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "outputHashing": "all"
-            },
+           "production": {
+  "outputHashing": "all",
+  "sourceMap": false,
+  "extractCss": true,
+  "optimization": {
+    "scripts": true,
+    "styles": {
+      "minify": true,
+      "inlineCritical": true
+    }
+  },
+  "budgets": [
+    {
+      "type": "initial",
+      "maximumWarning": "500kb",
+      "maximumError": "1mb"
+    },
+    {
+      "type": "anyComponentStyle",
+      "maximumWarning": "2kb",
+      "maximumError": "4kb"
+    }
+  ]
+},
+
             "development": {
               "buildOptimizer": false,
               "optimization": false,
