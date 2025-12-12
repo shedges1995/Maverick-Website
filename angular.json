@@ -41,7 +41,12 @@
           },
           "configurations": {
             "production": {
-              "optimization": true,
+              "optimization": {
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": true
+                }
+              },
               "sourceMap": false,
               "budgets": [
                 {
