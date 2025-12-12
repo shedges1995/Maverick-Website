@@ -46,11 +46,10 @@ interface Review {
   standalone: true,
   imports: [CommonModule,FormsModule],
   templateUrl: './app.component.html',
-  styles: [`
-    :host {
-      display: block;
-    }
-  `],
+  styles: [
+    `:host { display: block; }`
+  ],
+  styleUrls:['./app.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppComponent {
@@ -183,29 +182,6 @@ export class AppComponent {
       }
     });
   }
-
-
-  checkStoryVisibility(): void {
-    if (typeof window === 'undefined') return;
-
-    const windowHeight = window.innerHeight;
-    const scrollTop = window.scrollY;
-
-    this.storySteps.forEach((step, index) => {
-      const element = document.querySelector(`[data-story-index="${index}"]`);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const elementTop = rect.top + scrollTop;
-        const elementVisible = (scrollTop + windowHeight) > elementTop + 100;
-        
-        if (elementVisible && !step.visible) {
-          setTimeout(() => {
-            step.visible = true;
-          }, index * 200);
-        }
-      }
-    });
-  }
   
   
 
@@ -240,6 +216,7 @@ export class AppComponent {
     {
       name: 'The Maverick',
       price: '1,500',
+      isCustom:true,
       description: 'You get the sophistication of an in-house CFO without the overhead',
       features: [
         'Everything in the Ranger',
@@ -249,19 +226,19 @@ export class AppComponent {
         'Monthly strategic reviews with a Maverick partner'
       ]
     },
-    {
-      name: 'Custom',
-      price: '?',
-      isCustom:true,
-      description: 'For businesses with unique needs requiring tailored solutions',
-      features: [
-        'Add-ons such as multi-entity consolidation',
-        'Advanced reporting', 
-        'Compensation analysis',
-        'Registered agent service', 
-        'Benefits administration are also available (though package-specific).'
-      ]
-    }
+    // {
+    //   name: 'CFO',
+    //   price: '3,000',
+    //   isCustom:true,
+    //   description: 'For businesses with unique needs requiring tailored solutions',
+    //   features: [
+    //     'Add-ons such as multi-entity consolidation',
+    //     'Advanced reporting', 
+    //     'Compensation analysis',
+    //     'Registered agent service', 
+    //     'Benefits administration are also available (though package-specific).'
+    //   ]
+    // }
   ];
 
   team: TeamMember[] = [
@@ -276,7 +253,7 @@ export class AppComponent {
     {
       name: 'Michael P. Cock',
       role: 'Partner',
-      bio: 'I grew up in a family of educators, graduated summa cum laude from the University of Houston, then spent years touring as a musician and serving as a worship leader before eventually settling down, meeting my wife, and starting a family. When our kids came along, I transitioned out of ministry, earned my Series 7 and 66, and worked as a paraplanner for investment firms around DFW. <br><br> We moved to Tyler to raise our kids near their grandparents, and I stepped into the world of estate-planning operations, learning the ins and outs of trusts, LLCs, and contract law. After the pandemic, I launched C-Suite - a back-office management shop built around modern, straightforward accounting, payroll, and tax support. That entrepreneurial streak eventually led to Maverick, formed in 2025 when C-Suite merged with Anthony Z Consulting and HJ Taxes to build a firm determined to ditch outdated methods and rethink how this work gets done. <br><br>Outside the office, I’m usually on our land, at one of the kids’ events, on a motorcycle, playing guitar, or spending time with my wife. We live just outside Tyler with our three amazing kids, and at the end of the day, my long-term ambition is simple: I want to be a rancher.',
+      bio: 'I grew up in a family of educators, graduated summa cum laude from the University of Houston, then spent years touring as a musician and serving as a worship leader before eventually settling down, meeting my wife, and starting a family. When our kids came along, I transitioned out of ministry, earned my Series 7 and 66, and worked as a paraplanner for investment firms around DFW. <br><br> <p class="indent">We moved to Tyler to raise our kids near their grandparents, and I stepped into the world of estate-planning operations, learning the ins and outs of trusts, LLCs, and contract law. After the pandemic, I launched C-Suite - a back-office management shop built around modern, straightforward accounting, payroll, and tax support. That entrepreneurial streak eventually led to Maverick, formed in 2025 when C-Suite merged with Anthony Z Consulting and HJ Taxes to build a firm determined to ditch outdated methods and rethink how this work gets done.</p> <br><br><p class="indent">Outside the office, I’m usually on our land, at one of the kids’ events, on a motorcycle, playing guitar, or spending time with my wife. We live just outside Tyler with our three amazing kids, and at the end of the day, my long-term ambition is simple: I want to be a rancher.</p>',
         blurb:'I didn’t take a traditional path into accounting - and honestly, that’s probably why I enjoy it so much.',
       showBio: false,
       image: 'assets/images/hunter.jpg'
@@ -284,7 +261,7 @@ export class AppComponent {
     {
       name: 'AJ Zepeda',
       role: 'Partner',
-      bio: 'Exists',
+      bio: "<p class='indent'>HEYY</p>",
         blurb:'Exists',
       showBio: false,
       image: 'assets/images/hunter.jpg'

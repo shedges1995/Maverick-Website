@@ -313,7 +313,7 @@ company scales, your financial systems scale with you.</p>
               <p class="text-yellow-700 mb-3 font-semibold">{{ member.role }}</p>
               <p class="text-slate-400 text-sm" style="font-style: italic;">"{{ member.blurb }}"</p>
               <div *ngIf="member.showBio" class="mt-2 py-20">
-                <p class="text-slate-400 text-sm text-left" [innerHtml]="member.bio"></p>
+                <p class="text-slate-400 text-sm text-left" style = "text-indent: 30px;" [innerHtml]="member.bio"></p>
               </div>
               <a (click)="member.showBio = !member.showBio" style="cursor: pointer;">{{ member.showBio ? 'Less' : 'More' }}</a>
 

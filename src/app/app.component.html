@@ -23,7 +23,6 @@
               <a href="#story" class="text-slate-300 hover:text-white transition" style="min-width: 60px;">Meet Us</a>
               <a href="#pricing" class="text-slate-300 hover:text-white transition">Pricing</a>
               <a href="#team" class="text-slate-300 hover:text-white transition">Team</a>
-<a routerLink="/articles" class="text-slate-300 hover:text-white transition">Articles</a>
 
               <button (click)="scrollToElement('contact')" style = "width:131px" 
               class="bg-yellow-700 px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
@@ -225,29 +224,7 @@ disciplined enough to deliver, and relentless about giving you financial clarity
               </div>
             </div>
           </div>
-
-          <!-- Stats Banner -->
-          <div class="mt-20 bg-gradient-to-r from-cyan-900 to-blue-900 rounded-2xl p-12 border border-cyan-500/30">
-            <h3 class="text-3xl font-bold mb-8 text-center">By The Numbers</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div class="text-4xl font-bold text-cyan-400 mb-2">300</div>
-                <div class="text-slate-300">Active Customers</div>
-              </div>
-              <div>
-                <div class="text-4xl font-bold text-cyan-400 mb-2">47</div>
-                <div class="text-slate-300">Tax Returns</div>
-              </div>
-              <div>
-                <div class="text-4xl font-bold text-cyan-400 mb-2">7</div>
-                <div class="text-slate-300">Team Members</div>
-              </div>
-              <div>
-                <div class="text-4xl font-bold text-cyan-400 mb-2">2</div>
-                <div class="text-slate-300">Countries Served</div>
-              </div>
-            </div>
-          </div>
+  
         </div>
       </section>
 
@@ -261,7 +238,7 @@ disciplined enough to deliver, and relentless about giving you financial clarity
 bookkeeping to fully outsourced Controller services. Each builds on the one before it, so as your
 company scales, your financial systems scale with you.</p>
           </div>
-          <div class="grid md:grid-cols-4 gap-8">
+          <div class="grid md:grid-cols-3 gap-8">
             <div *ngFor="let plan of plans" 
                  [class]="plan.popular 
                    ? 'rounded-2xl p-8 border-2 bg-gradient-to-br from-slate-800 to-slate-900 border-yellow-700 relative' 
@@ -313,11 +290,21 @@ company scales, your financial systems scale with you.</p>
               <p class="text-yellow-700 mb-3 font-semibold">{{ member.role }}</p>
               <p class="text-slate-400 text-sm" style="font-style: italic;">"{{ member.blurb }}"</p>
               <div *ngIf="member.showBio" class="mt-2 py-20">
-                <p class="text-slate-400 text-sm text-left" [innerHtml]="member.bio"></p>
+                <p class="text-slate-400 text-sm text-left indent" [innerHtml]="member.bio"></p>
               </div>
               <a (click)="member.showBio = !member.showBio" style="cursor: pointer;">{{ member.showBio ? 'Less' : 'More' }}</a>
 
             </div>
+            <span class="[&>svg]:h-5 [&>svg]:w-5">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 448 512">
+    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+    <path
+      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+  </svg>
+</span>
           </div>
         </div>
       </section>
