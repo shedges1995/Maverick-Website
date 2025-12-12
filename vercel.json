@@ -1,0 +1,9 @@
+{
+  "framework": "none",
+  "optimization": {
+    "disable": true
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

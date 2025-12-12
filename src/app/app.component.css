@@ -37,3 +37,7 @@ html, body {
 .indent {
     text-indent: 30px;
 }
+
+:host {
+  display: block;
+}
