@@ -284,9 +284,9 @@ export class AppComponent {
   sendEmail (formData:any){
   console.log("form",formData);
 
-  // emailjs.send("mav_test","template_i870o43",
-  //   formData,
-  //   'fdo8F_xPtue8Wxvhp');
+  emailjs.send("mav_test","template_i870o43",
+    formData,
+    'fdo8F_xPtue8Wxvhp');
   console.log("sent");
   this.thankyou = true;
   this.scrollToElement('contact')
