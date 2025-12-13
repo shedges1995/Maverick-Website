@@ -41,3 +41,16 @@ html, body {
 :host {
   display: block;
 }
+
+.img-box {
+  width: 200px;      /* your desired width */
+  height: 200px;     /* your desired height */
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* fills the box, crops edges if needed */
+  object-position: center;
+}

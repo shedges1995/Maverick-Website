@@ -242,11 +242,19 @@ export class AppComponent {
   ];
 
   team: TeamMember[] = [
+       {
+      name: 'AJ Zepeda',
+      role: 'Partner',
+      bio: "<p class='indent'>HEYY</p>",
+        blurb:'Exists',
+      showBio: false,
+      image: 'assets/images/aj.jpg'
+    },
     {
       name: 'Hunter Jackson, CPA',
       role: 'Tax Director',
-      bio: 'Actual Accountant',
-      blurb:'Exists',
+      bio: 'Hunter Jackson grew up in Mississippi, where he learned two important truths early on: sweet tea solves most problems, and someone has to keep the books balanced. After graduating from Delta State University and earning his CPA, he set off for Austin—because what better place for a numbers guy than a city full of startups trying to make sense of their own spreadsheets? <br><br> <p class="indent">In Austin, Hunter dove into the tech world, first wrangling finances for a startup and then leveling up at another fast-moving company. Eventually, he decided the only logical next step was to build something of his own—so he founded Maverick, proving that accountants can be both fiscally responsible and slightly rebellious. </p><br><br> <p class="indent">His career has since taken him from Indianapolis to St. Louis and now New Orleans, where he enjoys good food, good music, and trying not to sweat through his shirts. And because he’s never met a skyline he didn’t want to live under, Hunter already has his eye on Denver—just in case Maverick needs a little mountain air.</p>',
+      blurb:'No one ever said accounting had to be boring. I’m here to make sure it isn’t.',
       showBio: false,
       image: 'assets/images/hunter.jpg'
     },
@@ -257,15 +265,8 @@ export class AppComponent {
         blurb:'I didn’t take a traditional path into accounting - and honestly, that’s probably why I enjoy it so much.',
       showBio: false,
       image: 'assets/images/hunter.jpg'
-    },
-    {
-      name: 'AJ Zepeda',
-      role: 'Partner',
-      bio: "<p class='indent'>HEYY</p>",
-        blurb:'Exists',
-      showBio: false,
-      image: 'assets/images/hunter.jpg'
     }
+ 
   ];
 
   toggleMobileMenu(): void {
@@ -288,6 +289,7 @@ export class AppComponent {
   //   'fdo8F_xPtue8Wxvhp');
   console.log("sent");
   this.thankyou = true;
+  this.scrollToElement('contact')
 
   }
 }
